@@ -35,3 +35,5 @@ Some notes about algorithm and code:
 -due to the both the visualization and save of images files, the instances can become laggy and slow especially if **`pygame.delay`** function is decommented  
 -as **`gain`** function I used the number of new cells found along an axis due to the field-of-view, while as **`cost`** I used the number of tile to traverse to reach a position, if no obstacle are encountered along the fov axis, then the agent reach the new frontier otherwise policy to stop before or take into account other moves have been implemented (see strategies above)  
 -a plot of the number of cell explored for each epoch is made and saved at the end of the execution
+
+![exploration](https://github.com/mariodesimone99/agent_exploration/blob/main/exploration.gif)
