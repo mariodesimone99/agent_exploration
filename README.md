@@ -25,7 +25,15 @@ The rest of the code is made of 2 classes definitions:
 -**`Map`**: representing the concept of map and its drawing  
 -**`MapHandler`**: an entity with the goal of handling both the agent and the real map across all of the possible stages from the initialization to the update and visualization
 
-and a **`main`** function which instantiate and loop-update the map until **`EXIT_THRESHOLD`** is reached.  
+and a **`main`** function which instantiate and loop-update the map until **`EXIT_THRESHOLD`** is reached.
+Color coding:
+
+-**BLACK** unknown cell  
+-**WHITE** free cell  
+-**BLUE** fov (direction the agent is looking to)  
+-**GREEN** agent postion  
+-**RED** obstacle cell  
+
 Some notes about algorithm and code:
 
 -the algorithm can be slowed down by decommenting and changing the parameter into the **`pygame.delay`** function found in the **`draw`** function in class **`Map`**  
