@@ -1,5 +1,5 @@
 # Frontier Exploration Algorithm
-This Project is an implementation of frontier exploration algorithm, the latter is a detailed guide about the structure of codes and files.  
+This Project is an implementation of space exploration algorithm, the latter is a detailed guide about the structure of codes and files.  
 
 ## Libraries
 First in the file **`requirements.txt`** there is a list of the library used
@@ -11,6 +11,7 @@ First in the file **`requirements.txt`** there is a list of the library used
 ## Configuration Parameters
 The project is made of a single python file, at the top there are the import libraries, definitions of some global variables used through the code, after that there are some configuration settings parameters:
 
+-**`METHOD`** a string to choose which kind (frontier or greedy) of approach to use
 -**`WINDOW_HEIGHT`** and **`WINDOW_WIDTH`** are the dimensions of the pygame instance and of the grid map  
 -**`BLOCK_SIZE`** is the dimension of each square tile in the pyagem instance  
 -**`EXIT_THRESHOLD`** is a number between 0 and 1, representing the amount of total cell to visit before exiting the game  
@@ -33,15 +34,17 @@ Color coding:
 -**BLUE** fov (direction the agent is looking to)  
 -**GREEN** agent postion  
 -**RED** obstacle cell  
+-**PURPLE** frontier cell
 
-Some notes about algorithm and code:
+Some notes about algorithms and code:
 
--the algorithm can be slowed down by decommenting and changing the parameter into the **`pygame.delay`** function found in the **`draw`** function in class **`Map`**  
--to avoid the fall into loop there have been used 2 strategies: I avoid to make the opposite move of a move if it already been visited (for example I avoid a pattern like left-right-left) and the use of random moves (both in direction and length) once in a while (see **`RANDOM_MOVE`** parameter)  
--the algorithm at least in principle is able to explore all kind of maps but the time may become unfeasible due to the large amount of random moves required  
+-the algorithms can be slowed down by decommenting and changing the parameter into the **`pygame.delay`** function found in the **`draw`** function in class **`Map`**  
+-to avoid the fall into loop into for the greedy approach there have been used 2 strategies: I avoid to make the opposite move of a move if it already been visited (for example I avoid a pattern like left-right-left) and the use of random moves (both in direction and length) once in a while (see **`RANDOM_MOVE`** parameter)  
+-at least in principle greedy approach is able to explore all kind of maps but the time may become unfeasible due to the large amount of random moves required  
 -during execution lots of images file are temporarily saved into a tmp folder, in order to get a **`.gif`** file, this folder is removed right after the creation of the file  
 -due to the both the visualization and save of images files, the instances can become laggy and slow especially if **`pygame.delay`** function is decommented  
 -as **`gain`** function I used the number of new cells found along an axis due to the field-of-view, while as **`cost`** I used the number of tile to traverse to reach a position, if no obstacle are encountered along the fov axis, then the agent reach the new frontier otherwise policy to stop before or take into account other moves have been implemented (see strategies above)  
 -a plot of the number of cell explored for each epoch is made and saved at the end of the execution
 
-![exploration](https://github.com/mariodesimone99/agent_exploration/blob/main/exploration.gif)
+![exploration](https://github.com/mariodesimone99/agent_exploration/blob/main/greedy.gif)
+![exploration](https://github.com/mariodesimone99/agent_exploration/blob/main/frontier.gif)
